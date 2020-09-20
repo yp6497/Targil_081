@@ -10,18 +10,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class hazaga extends AppCompatActivity {
-
-    public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+    public class hazaga extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
         ListView lv;
         TextView wa, whc, m, c;
         String s;
         float a, h;
-        int sum=0,cfola=1;
+        int sum = 0, cfola = 1;
 
-        String[] eivar = new String[20];
-
+        String [] boo = {"h","b","u"};
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -37,41 +34,42 @@ public class hazaga extends AppCompatActivity {
             lv.setOnItemClickListener(this);
             lv.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
-
             ArrayAdapter<String> adp = new ArrayAdapter<String>(this,
-                    R.layout.support_simple_spinner_dropdown_item, eivar);
+                    R.layout.support_simple_spinner_dropdown_item, boo);
             lv.setAdapter(adp);
 
             start();
         }
 
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            m.setText("position:" + position);
-        }
-
         private void start() {
             Intent gi = getIntent();
             s = gi.getStringExtra("s");
-            a = gi.getFloatExtra("a", 1);
-            h = gi.getFloatExtra("h", 1);
-            wa.setText("the first: " + a);
-            whc.setText("the hfresh: " + h);
+            a = gi.getFloatExtra("a", -1);
+            h = gi.getFloatExtra("h", -1);
 
-            //float sum= h;
-            if (s == "h") {
-                for (int i = 0; i <= 20; i++) {
-                     eivar[i]= String.valueOf(sum+a);
-                    sum++;
+
+            //if (s == "h") {
+                //for(int i=0;,i<=20;i++){
+
+                }
+                //}else if(s=="a") {
+                //  sum++;
+
+                //}
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    m.setText("position:" + position);
                 }
 
-            } else if (s == "הנדסית") {
-                sum++;
-
-
-            }
+        public void finis(View view) {
+            finish();
         }
     }
-}
+
+
+
+
+
+
 
 
