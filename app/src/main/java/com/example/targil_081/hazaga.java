@@ -16,11 +16,12 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
 
     ListView lv;
     TextView wa, whc, m, c;
-    String s,aas,sS,aS,hS;
-    float a,hc,aa,num,sum=0;
+    String xisovS;
+    float a,hc,xisov,num,sum=0;
     int x;
 
     String [] boo = new String [20];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,47 +45,43 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
         for (int i = 0; i <= 19; i++) {
             if (x == 1) {
                 if (i == 0) {
-                    aa = num;
+                    xisov = num;
                 } else {
-                    aa = num + hc;
+                    xisov = num + hc;
                 }
-                sum=sum+aa;
+                sum=sum+xisov;
             } else if (x == 2) {
                 if (i == 0) {
-                    aa = num;
+                    xisov = num;
                 } else {
-                    aa = num * hc;
+                    xisov = num * hc;
                 }
-                sum=sum+aa;
+                sum=sum+xisov;
             }
-            aas = Float.toString(aa);
-            boo[i] = aas;
+            xisovS = Float.toString(xisov);
+            boo[i] = xisovS;
             num = Float.parseFloat(boo[i]);
         }
         c.setText("סכום הסדרה: "+sum);
     }
 
            private void start () {
+
             Intent gi = getIntent();
-            //s = gi.getStringExtra("s");
             x= gi.getIntExtra("x",1);
             a = gi.getFloatExtra("a", 1);
             hc = gi.getFloatExtra("h", 1);
-            //sS = Float.toString(s);
-            //aS = Integer.toString(a);
-            //hS = Integer.toString(h);
             num = a;
             wa.setText("האיבר הראשון: "+a);
             whc.setText("ההפרש או הכפולה: "+hc);
-
-            }
+    }
 
         @Override
         public void onItemClick (AdapterView < ? > parent, View view,int position, long id){
             m.setText("מיקום האיבר הנבחר:"+position);
-        }
+    }
 
         public void finis (View view){
             finish();
-        }
+    }
 }

@@ -11,11 +11,10 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText edS,edA,edH;
-    String sS,sA,sH;
+    EditText edA,edH;
+    String sA,sH;
     float a,h;
     int x;
-    boolean bo;
     Switch sw;
 
     @Override
@@ -29,13 +28,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void start(View view) {
-            //sS=edS.getText().toString();
+
             sA=edA.getText().toString();
             sH=edH.getText().toString();
             if(sA.isEmpty()||sH.isEmpty()) {
                Toast.makeText(this,"please fill all thr feilds", Toast.LENGTH_SHORT).show();
             }
             else {
+                if(sw.isChecked())
+                    x=1;
+                else x=2;
                 a=Float.parseFloat(sA);
                 h=Float.parseFloat(sH);
 
@@ -48,9 +50,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     public void whichSeries(View view) {
-        if(sw.isChecked())
-            x=1;
-        else x=2;
+
     }
 }
-
