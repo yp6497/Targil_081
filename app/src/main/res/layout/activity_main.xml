@@ -17,24 +17,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="82dp"
+            android:layout_height="84dp"
             android:orientation="horizontal">
 
             <Space
-                android:layout_width="220dp"
-                android:layout_height="39dp"
+                android:layout_width="170dp"
+                android:layout_height="46dp"
                 android:layout_weight="1" />
 
-            <EditText
-                android:id="@+id/edS"
-                android:layout_width="260dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="סדרה חשבונית או הנדסית" />
+            <Switch
+                android:id="@+id/sw"
+                android:layout_width="311dp"
+                android:layout_height="62dp"
+                android:layout_weight="1"
+                android:onClick="whichSeries"
+                android:textOff="סדרה הנדסית"
+                android:textOn="סדרה חשבונית" />
 
             <Space
-                android:layout_width="203dp"
+                android:layout_width="158dp"
                 android:layout_height="42dp"
                 android:layout_weight="1" />
 
@@ -50,21 +51,26 @@
             android:orientation="horizontal">
 
             <Space
-                android:layout_width="28dp"
+                android:layout_width="42dp"
                 android:layout_height="46dp"
                 android:layout_weight="1" />
 
+            <TextView
+                android:layout_width="192dp"
+                android:layout_height="29dp"
+                android:layout_weight="1"
+                android:text="האיבר הראשון" />
+
             <EditText
                 android:id="@+id/edA"
-                android:layout_width="182dp"
+                android:layout_width="178dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"
-                android:text="האיבר הראשון" />
+                android:inputType="number" />
 
             <Space
-                android:layout_width="wrap_content"
+                android:layout_width="53dp"
                 android:layout_height="43dp"
                 android:layout_weight="1" />
 
@@ -81,21 +87,26 @@
             android:orientation="horizontal">
 
             <Space
-                android:layout_width="78dp"
+                android:layout_width="42dp"
                 android:layout_height="44dp"
                 android:layout_weight="1" />
 
+            <TextView
+                android:layout_width="206dp"
+                android:layout_height="29dp"
+                android:layout_weight="1"
+                android:text="ההפרש או הכפולה" />
+
             <EditText
                 android:id="@+id/edH"
-                android:layout_width="236dp"
+                android:layout_width="186dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"
-                android:text="ההפרש או הכפולה" />
+                android:inputType="number" />
 
             <Space
-                android:layout_width="16dp"
+                android:layout_width="56dp"
                 android:layout_height="38dp"
                 android:layout_weight="1" />
 
@@ -121,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="start"
-                android:text="Button" />
+                android:text="Start with the calculation" />
 
             <Space
                 android:layout_width="wrap_content"
