@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-            //edS=findViewById(R.id.edS);
             edA=findViewById(R.id.edA);
             edH=findViewById(R.id.edH);
             sw=findViewById(R.id.sw);
@@ -40,9 +38,8 @@ public class MainActivity extends AppCompatActivity {
             else {
                 a=Float.parseFloat(sA);
                 h=Float.parseFloat(sH);
-                //if()
+
                 Intent si = new Intent(this,hazaga.class);
-                //si.putExtra("s",sS);
                 si.putExtra("x",x);
                 si.putExtra("a",a);
                 si.putExtra("h",h);

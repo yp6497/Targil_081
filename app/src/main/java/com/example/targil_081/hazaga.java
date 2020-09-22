@@ -17,12 +17,10 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
     ListView lv;
     TextView wa, whc, m, c;
     String s,aas,sS,aS,hS;
-    float a,hc,aa,num,y;
-    int x; //do we need it(1)? because maybe when there is 0 amd 1 its need to be 0 and not something else
-
+    float a,hc,aa,num,sum=0;
+    int x;
 
     String [] boo = new String [20];
-    //String [] boo = {"h","b","u"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +31,6 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
         whc = findViewById(R.id.wh);
         m = findViewById(R.id.m);
         c = findViewById(R.id.c);
-        //String hs="h";
-        //String xS="x";
 
         lv.setOnItemClickListener(this);
         lv.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -45,48 +41,29 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
                 R.layout.support_simple_spinner_dropdown_item, boo);
         lv.setAdapter(adp);
 
-
-        //if(x==2)
-          //  y=num*hc;
-          //if(x==1)
-           // y=num+hc;
-
-            for (int i = 0; i <= 19; i++) {
-                if(x==2) {
-                    if (i == 0) {
-                        aa = num;
-                    } else {
-                        aa = num*hc; //aa=num+hc
-                        aas = Float.toString(aa);
-                        boo[i] = aas;
-                        num = Float.parseFloat(boo[i]);
-                    }
+        for (int i = 0; i <= 19; i++) {
+            if (x == 1) {
+                if (i == 0) {
+                    aa = num;
+                } else {
+                    aa = num + hc;
                 }
-                else{
-                    y++;
+                sum=sum+aa;
+            } else if (x == 2) {
+                if (i == 0) {
+                    aa = num;
+                } else {
+                    aa = num * hc;
                 }
-
+                sum=sum+aa;
             }
-
-        /*
-            if (s == "x") {
-                for (int i = 0; i <= 19; i++) {
-                    if (i == 0) {
-                        aa = num;
-                    } else {
-                        aa = num + hc;
-                    }
-                    aas = Float.toString(aa);
-                    boo[i] = aas;
-                    num = Float.parseFloat(boo[i]);
-                }
-            }else if(s=="h"){
-
-         */
-
+            aas = Float.toString(aa);
+            boo[i] = aas;
+            num = Float.parseFloat(boo[i]);
         }
+        c.setText("סכום הסדרה: "+sum);
+    }
 
-           // }
            private void start () {
             Intent gi = getIntent();
             //s = gi.getStringExtra("s");
@@ -100,31 +77,6 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
             wa.setText("האיבר הראשון: "+a);
             whc.setText("ההפרש או הכפולה: "+hc);
 
-
-
-
-
-            //for(int i=1;i<=7;i++){
-              //  boo[i] = String.valueOf(num + h);
-                //num =boo[i];
-          //}
-          /*
-            if(x==1) {
-                for (int s = 0; s <= 7; s++) {
-                    boo[s] = Integer.parseInt(String.valueOf(num + h));
-                    num = (int) Float.parseFloat(String.valueOf(boo[s]));
-                }
-            }
-
-            if (s == "h") {
-                for (int i = 0; i <= 20; i++) {
-                    boo[i] = String.valueOf(num + h);
-                    num = Float.parseFloat(boo[i]);
-                }
-            } else if (s == "a") {
-                sum++;
-            }
-             */
             }
 
         @Override
