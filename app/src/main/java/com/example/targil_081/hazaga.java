@@ -18,9 +18,10 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
     TextView wa, whc, m, c;
     String xisovS;
     float a,hc,xisov,num,sum=0;
-    int x;
+    int x,y;
 
-    String [] boo = new String [20];
+    String [] eivar = new String [20];
+    Float [] sumA = new Float [20];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,30 +40,34 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
         start();
 
         ArrayAdapter<String> adp = new ArrayAdapter<String>(this,
-                R.layout.support_simple_spinner_dropdown_item, boo);
+                R.layout.support_simple_spinner_dropdown_item, eivar);
         lv.setAdapter(adp);
 
-        for (int i = 0; i <= 19; i++) {
+        for (int i = 0; i <20; i++) {
             if (x == 1) {
                 if (i == 0) {
                     xisov = num;
+                    sum=num;
                 } else {
                     xisov = num + hc;
+                    sum=sum+xisov;
                 }
-                sum=sum+xisov;
+                //sum=sum+xisov;
             } else if (x == 2) {
                 if (i == 0) {
                     xisov = num;
+                    sum=num;
                 } else {
                     xisov = num * hc;
+                    sum=sum+xisov;
                 }
-                sum=sum+xisov;
+                //sum=sum+xisov;
             }
+            sumA[i]=sum;
             xisovS = Float.toString(xisov);
-            boo[i] = xisovS;
-            num = Float.parseFloat(boo[i]);
+            eivar[i] = xisovS;
+            num = Float.parseFloat(eivar[i]);
         }
-        c.setText("סכום הסדרה: "+sum);
     }
 
            private void start () {
@@ -78,8 +83,12 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
 
         @Override
         public void onItemClick (AdapterView < ? > parent, View view,int position, long id){
-            m.setText("מיקום האיבר הנבחר:"+position);
-    }
+            y=position+1;
+            m.setText("מיקום האיבר הנבחר:"+y);
+            c.setText("סכום הסדרה: "+sumA[position]);
+        //or(int i=1;i<=y;i++) {
+               // sum=sum+
+            }
 
         public void finis (View view){
             finish();
