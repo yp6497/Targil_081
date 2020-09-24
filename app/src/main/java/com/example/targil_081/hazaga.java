@@ -52,7 +52,7 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
                     xisov = num + hc;
                     sum=sum+xisov;
                 }
-                //sum=sum+xisov;
+
             } else if (x == 2) {
                 if (i == 0) {
                     xisov = num;
@@ -61,7 +61,6 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
                     xisov = num * hc;
                     sum=sum+xisov;
                 }
-                //sum=sum+xisov;
             }
             sumA[i]=sum;
             xisovS = Float.toString(xisov);
@@ -86,8 +85,6 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
             y=position+1;
             m.setText("מיקום האיבר הנבחר:"+y);
             c.setText("סכום הסדרה: "+sumA[position]);
-        //or(int i=1;i<=y;i++) {
-               // sum=sum+
             }
 
         public void finis (View view){
