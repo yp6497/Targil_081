@@ -76,15 +76,16 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
             a = gi.getFloatExtra("a", 1);
             hc = gi.getFloatExtra("h", 1);
             num = a;
-            wa.setText("האיבר הראשון: "+a);
-            whc.setText("ההפרש או הכפולה: "+hc);
+            wa.setText("x1="+a);
+            if(x==1) whc.setText("d="+hc);
+            else whc.setText("q="+hc);
     }
 
         @Override
         public void onItemClick (AdapterView < ? > parent, View view,int position, long id){
             y=position+1;
-            m.setText("מיקום האיבר הנבחר:"+y);
-            c.setText("סכום הסדרה: "+sumA[position]);
+            m.setText("n="+y);
+            c.setText("Sn="+sumA[position]);
             }
 
         public void finis (View view){

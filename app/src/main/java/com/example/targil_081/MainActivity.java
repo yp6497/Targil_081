@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
             edA=findViewById(R.id.edA);
             edH=findViewById(R.id.edH);
             sw=findViewById(R.id.sw);
+
+
         }
 
         public void start(View view) {
@@ -47,9 +49,10 @@ public class MainActivity extends AppCompatActivity {
                 si.putExtra("h",h);
                 startActivity(si);
             }
+            edA.getText().clear();
+            edH.getText().clear();
         }
 
     public void whichSeries(View view) {
-
     }
 }
