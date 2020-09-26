@@ -104,7 +104,7 @@
                     android:orientation="horizontal">
 
                     <Space
-                        android:layout_width="39dp"
+                        android:layout_width="29dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
 

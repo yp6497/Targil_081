@@ -17,11 +17,11 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
     ListView lv;
     TextView wa, whc, m, c;
     String xisovS;
-    float a,hc,xisov,num,sum=0;
-    int x,y;
+    float a, hc, xisov, num, sum = 0;
+    int x, y;
 
-    String [] eivar = new String [20];
-    Float [] sumA = new Float [20];
+    String[] eivar = new String[20];
+    Float[] sumA = new Float[20];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,52 +43,53 @@ public class hazaga extends AppCompatActivity implements AdapterView.OnItemClick
                 R.layout.support_simple_spinner_dropdown_item, eivar);
         lv.setAdapter(adp);
 
-        for (int i = 0; i <20; i++) {
+        for (int i = 0; i < 20; i++) {
             if (x == 1) {
                 if (i == 0) {
                     xisov = num;
-                    sum=num;
+                    sum = num;
                 } else {
                     xisov = num + hc;
-                    sum=sum+xisov;
+                    sum = sum + xisov;
                 }
 
             } else if (x == 2) {
                 if (i == 0) {
                     xisov = num;
-                    sum=num;
+                    sum = num;
                 } else {
                     xisov = num * hc;
-                    sum=sum+xisov;
+                    sum = sum + xisov;
                 }
             }
-            sumA[i]=sum;
+            sumA[i] = sum;
             xisovS = Float.toString(xisov);
             eivar[i] = xisovS;
             num = Float.parseFloat(eivar[i]);
         }
     }
 
-           private void start () {
+    private void start() {
 
-            Intent gi = getIntent();
-            x= gi.getIntExtra("x",1);
-            a = gi.getFloatExtra("a", 1);
-            hc = gi.getFloatExtra("h", 1);
-            num = a;
-            wa.setText("x1="+a);
-            if(x==1) whc.setText("d="+hc);
-            else whc.setText("q="+hc);
+        Intent gi = getIntent();
+        x = gi.getIntExtra("x", 1);
+        a = gi.getFloatExtra("a", 1);
+        hc = gi.getFloatExtra("h", 1);
+        num = a;
+        wa.setText("x1=" + a);
+        if (x == 1) whc.setText("d=" + hc);
+        else whc.setText("q=" + hc);
     }
 
-        @Override
-        public void onItemClick (AdapterView < ? > parent, View view,int position, long id){
-            y=position+1;
-            m.setText("n="+y);
-            c.setText("Sn="+sumA[position]);
-            }
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        public void finis (View view){
-            finish();
+        y = position + 1;
+        m.setText("n=" + y);
+        c.setText("Sn=" + sumA[position]);
+    }
+
+    public void finis(View view) {
+        finish();
     }
 }

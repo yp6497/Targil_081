@@ -26,22 +26,26 @@ public class MainActivity extends AppCompatActivity {
             edH=findViewById(R.id.edH);
             sw=findViewById(R.id.sw);
 
-
         }
 
         public void start(View view) {
 
             sA=edA.getText().toString();
             sH=edH.getText().toString();
+
             if(sA.isEmpty()||sH.isEmpty()) {
                Toast.makeText(this,"please fill all thr feilds", Toast.LENGTH_SHORT).show();
             }
             else {
+
                 if(sw.isChecked())
                     x=1;
                 else x=2;
                 a=Float.parseFloat(sA);
                 h=Float.parseFloat(sH);
+
+                edA.getText().clear();
+                edH.getText().clear();
 
                 Intent si = new Intent(this,hazaga.class);
                 si.putExtra("x",x);
@@ -49,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 si.putExtra("h",h);
                 startActivity(si);
             }
-            edA.getText().clear();
-            edH.getText().clear();
+
         }
 
     public void whichSeries(View view) {
